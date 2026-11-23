@@ -14,12 +14,15 @@ const LINE =
 
 const MAX_CHARS = 160;
 
+const OUTPUT_FILE = "entry.txt";
+
 const chars = [...LINE];
-if (chars.length < 1 || chars.length > MAX_CHARS) {
-  throw new Error(`entry is ${chars.length} characters, must be 1-${MAX_CHARS}`);
-}
+// Validate in order: non-blank, within 1-160 chars, then single-line.
 if (LINE.trim().length === 0) {
   throw new Error("entry is only whitespace");
+}
+if (chars.length < 1 || chars.length > MAX_CHARS) {
+  throw new Error(`entry is ${chars.length} characters, must be 1-${MAX_CHARS}`);
 }
 if (/[\r\n]/.test(LINE)) {
   throw new Error("entry must be a single line");
@@ -27,4 +30,4 @@ if (/[\r\n]/.test(LINE)) {
 
 const outDir = process.env.OUTPUT_DIR ?? "/output";
 mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, "entry.txt"), LINE, "utf8");
+writeFileSync(join(outDir, OUTPUT_FILE), LINE, "utf8");
