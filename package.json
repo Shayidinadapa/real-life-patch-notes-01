@@ -1,0 +1,1 @@
+{"description":"One-line patch note for a bug in real life: the stomach growls loudest during the quietest minute of the exam.","engines":{"node":">=22.18"},"license":"MIT","name":"real-life-patch-notes-01","private":true,"scripts":{"start":"node main.ts"},"type":"module","version":"1.0.0"}
